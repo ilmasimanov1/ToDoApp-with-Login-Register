@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/style2.css'%}" />
+    <title>Sign-Up Page</title>
+  </head>
+  <body>
+    <div class="register-page">
+
+      <!-- Alert for error in form fields of registration -->
+
+      {% if form.errors %} {% for field in form %} {% for error in field.errors
+      %}
+      <div class="alert alert-danger" role="alert">{{error|escape}}</div>
+      {% endfor %}{% endif %}
+
+      <!-- Sign Up form : Fname,Lname,Username,Email,Password,Password Confirm -->
+
+      <div class="form">
+        <h3>Sign up</h3>
+        <form method="POST" class="register-form">
+          {% csrf_token %}
+          <div class="f-l-name">{{form.fname}} {{form.lname}}</div>
+          {{form.username}} {{form.email}} {{form.password1}} {{form.password2}}
+          <button type="submit">create</button>
+          <p class="message">
+            Already registered? <a href="{% url 'loginpage' %}">Sign In</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+  <!-- JavaScript Bundle with Popper -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
+  ></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+  <!-- Js code for form fields placeholder -->
+
+  <script>
+    var form_fields = document.getElementsByTagName("input");
+    form_fields[1].placeholder = "First Name";
+    form_fields[2].placeholder = "Last Name";
+    form_fields[3].placeholder = "Username";
+    form_fields[4].placeholder = "Email Address";
+    form_fields[5].placeholder = "Password";
+    form_fields[6].placeholder = "Password Confirm";
+  </script>
+</html>

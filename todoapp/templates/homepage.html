@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Alert for Todo Add, Delete, Update  -->
+
+{% if messages %}
+    {% for message in messages  %}
+        <div class="alert {{message.tags}} alert-dismissible fade show alertmessages" role="alert">
+          {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> 
+    {% endfor %}
+  
+{% endif %}
+
+
+<!--! Home Page For Todo List -->
+
+<!-- Input Todo , Add buton -->
+
+<form action="{% url 'addtodo' %}" method="POST" class="addtodoform"> 
+    {% csrf_token %} 
+    <input class="form-control" type="text" name="title" placeholder="Add Todo...">
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>
+
+
+<!-- List of Todo, View, Delete -->
+
+{% if todos %}
+  
+<table class="table table-bordered">
+    <thead>
+        <tr style="text-align: center;">
+            <th>Todo List</th>
+            <th>Completed</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo in todos %}
+            {% if todo.is_done %}
+            <tr style="text-align: center;">
+                <td><s>{{todo.title}}</s></td>
+                <td><a class="btn btn-outline-primary" href="{% url 'uncompletedtodo' todo.id %}">Completed</a></td>
+                <td><a class="btn btn-primary" href="{% url 'viewtodo' todo.id %}">View</a></td>
+                <td><a class="btn btn-danger" href="{% url 'deletetodo' todo.id %}">Delete</a></td>
+            </tr>
+            {% else %}
+            <tr style="text-align: center;">
+                <td>{{todo.title}}</td>
+                <td><a class="btn btn-outline-primary" href="{% url 'completedtodo' todo.id %}">Not Completed</a></td>
+                <td><a class="btn btn-primary" href="{% url 'viewtodo' todo.id %}">View</a></td>
+                <td><a class="btn btn-danger" href="{% url 'deletetodo' todo.id %}">Delete</a></td>
+            </tr> 
+            {% endif %}
+ 
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Alert If Todos is Not -->
+
+{% else %}
+
+    <div class="alert alert-danger" role="alert" style="text-align: center;">Not Yet Added Todo</div>
+
+{% endif %}
+
+
+{% endblock content %}

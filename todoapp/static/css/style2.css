@@ -1,0 +1,163 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+/*! Home Page For Todo List */
+
+/* Nav Bar, Logout */
+
+.appname a{
+    font-size: 35px;
+}
+.welcome{
+    margin-right: 10px ;
+    color: white;
+}
+.button{
+    width: auto;
+}
+.menubar, .button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Alert for Todo Add, Delete, Update */
+
+.alertmessages{
+    margin-top: 20px;
+}
+
+
+/* Input Todo, Add button */
+
+.addtodoform{
+    margin-top: 50px;
+}
+.addtodoform button{
+    margin: 10px 0px;
+}
+
+
+/* List of Todo, View, Delete */
+
+.table-bordered{
+    border-width: 1px;
+}
+
+table tr{
+    line-height: 35px;
+}
+
+/* Update Todo */
+
+.card-title input[id=id_title] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/*! Login and Register Page */
+
+h3 {
+    text-align: center;
+    margin-top: 0;
+    padding: 0 0 10px;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.login-page,
+.register-page {
+    margin: 35px auto 0px;
+}
+
+.login-page {
+    width: 400px;
+}
+
+.register-page {
+    width: 450px;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 450px;
+    margin: auto;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+/* First and Last Name  */
+
+.f-l-name {
+    display: flex;
+}
+
+.f-l-name input:first-child {
+    margin-right: 10px;
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[fieldset] {
+    color: white;
+}
+
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #0865b1;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+    background: #0e4394;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.form .message a {
+    color: #102caa;
+    text-decoration: none;
+}
+
+/* Body */
+
+body {
+    background: #f2f2f2;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
